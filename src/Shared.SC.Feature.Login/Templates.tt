@@ -1,0 +1,16 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="C:\Program Files (x86)\Hedgehog Development\Team Development for Sitecore (VS2015)\HedgehogDevelopment.SitecoreCommon.Data.dll" #>
+<#@ assembly name="C:\Program Files (x86)\Hedgehog Development\Team Development for Sitecore (VS2015)\HedgehogDevelopment.SitecoreCommon.Data.Parser.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="HedgehogDevelopment.SitecoreCommon.Data" #>
+<#@ import namespace="HedgehogDevelopment.SitecoreCommon.Data.Items" #>
+<#@ import namespace="HedgehogDevelopment.SitecoreCommon.Data.Fields" #>
+<#@ include file="..\CodeGenerationHelperFunctions.t4" #>
+<#
+string templatePathRestriction = "/Feature/Login/";
+SerializedTreeDataSource sitecoreDataSource = new SerializedTreeDataSource(this.Host.ResolvePath("..\\Shared.SC.Feature.Login.TDS"));
+#>
+<#= GenerateTemplatesClass(sitecoreDataSource, templatePathRestriction) #>
